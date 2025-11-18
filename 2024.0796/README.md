@@ -41,9 +41,9 @@ To get the Figures and Tables in the paper, please run the R codes in the `scrip
 
 ## Ongoing Development
 
-This code is being developed on an on-going basis at the author's [GitHub site](https://github.com/SuperLee-7512).
+This code is being developed on an on-going basis at the author's [GitHub site](https://github.com/statcp).
 
 ## Support
 
 For support in using this software, submit an
-[issue](https://github.com/SuperLee-7512/IJOC).
+[issue](https://github.com/statcp).
