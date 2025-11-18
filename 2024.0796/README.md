@@ -18,7 +18,7 @@ To cite the contents of this repository, please cite both the paper and this rep
 Below is the BibTex for citing this version of the code.
 ```latex
 @misc{fu2025fast,
-  author =    {Sheng Fu, Shixiang Li, Kai Yu, Piao Chen and  Zhisheng Ye},
+  author =    {Sheng Fu, Shixiang Li, Kai Yu, Piao Chen, and Zhisheng Ye},
   publisher =     {INFORMS Journal on Computing},
   title =         {Fast multinomial logistic regression with group sparsity},
   year =          {2025},
@@ -31,10 +31,10 @@ Below is the BibTex for citing this version of the code.
 
 This directory contains the code for the *group simplex-based multinomial logistic regression (GSMLR)* algorithm.
 
-This project contains four folders: `data`, `results`, `src`, `scripts`.
+This project contains three folders: `data`, `src`, and `scripts`.
 - `data`: include five real datasets (.Rdata file) used in the paper.
 - `src`: include the source codes (.R file).
-- `scripts`: include codes (.R file) to replicate the experiments for Figure 3 in the paper, all outputs necessary for the study can be reproduced with similar codes.
+- `scripts`: include codes (.R file) to replicate the experiments for Figure 3 in the paper. All outputs necessary for the study can be reproduced with similar codes.
 
 ## Replicating
 To get the Figures and Tables in the paper, please run the R codes in the `scripts` folder. 
