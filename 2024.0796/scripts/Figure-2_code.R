@@ -3,7 +3,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 # Packages ----------------------------------------------------------------
 library(parallel)
 library(glmnet)
-library(msgl)
+# library(msgl)
 library(dplyr)
 library(ggplot2)
 library(ggpubr)
@@ -12,7 +12,7 @@ library(reshape2)
 app_func <- function(para){
   load("isolet.Rdata")
   library(glmnet)
-  library(msgl)
+  # library(msgl)
   library(dplyr)
   # BasiC functionS ----------------------------------------------------------
   lammax = function(X,Y,k,group,dg){ 
@@ -415,7 +415,7 @@ app_func <- function(para){
     #lambda-sequence
     lam0 <- max(lammaxlasso(X, Y),
                 lammax(X, Y, k, group, dg),
-                lambda(x_tr, y_tr, alpha = 0, d = 2, lambda.min = 0.001, standardize = F)[1])
+                cv.glmnet(x_tr, y_tr)$res$lambda.1se)
     lambda.min.ratio <- 0.1
     lambda <- lam0 * seq(2, lambda.min.ratio, length.out=nlambda)
     
@@ -474,29 +474,29 @@ app_func <- function(para){
 cl <- detectCores()
 clus <- makeCluster(cl - 2)
 res_all <- list()
-parm <- cbind(rep(1, 100))
+parm <- cbind(rep(1, 10))
 res_all <- parLapply(clus, parm, fun = app_func)
 save(res_all, file = "res_smlr_ISOLET_lambda.Rdata")
 # Plot --------------------------------------------------------------------
 load("res_smlr_ISOLET_lambda.Rdata")
 res_lambda <- 0
-for (i in 1:100) {
-  res_lambda <- res_lambda + res_all[[i]][["lambda"]] / 100
+for (i in 1:10) {
+  res_lambda <- res_lambda + res_all[[i]][["lambda"]] / 10
 }
 
 res_SF <- list()
-for (i in 1:4) {
+for (i in 1:3) {
   res_SF[[i]] <- 0
 }
 names(res_SF) <- names(res_all[[1]][["SF"]])
 
-for (i in 1:100) {
-  for (j in 1:4) {
-    res_SF[[j]] <- res_SF[[j]] + res_all[[i]][["SF"]][[j]] / 100
+for (i in 1:10) {
+  for (j in 1:3) {
+    res_SF[[j]] <- res_SF[[j]] + res_all[[i]][["SF"]][[j]] / 10
   }
 }
-SF_seq <- data.frame(res_lambda, res_SF[[1]], 
-                     res_SF[[3]], res_SF[[4]])
+SF_seq <- data.frame(res_lambda, res_SF[[1]], res_SF[[2]],
+                     res_SF[[3]])
 colnames(SF_seq) <- c("k", "A", "B", "C")
 SF_seq <- melt(data = SF_seq, id.vars = "k")
 
@@ -521,17 +521,17 @@ SF_plot <- ggplot(data = SF_seq,
 
 
 res_SF_gr <- list()
-for (i in 1:4) {
+for (i in 1:3) {
   res_SF_gr[[i]] <- 0
 }
 names(res_SF_gr) <- names(res_all[[1]][["SF_gr"]])
 
-for (i in 1:100) {
-  for (j in 1:4) {
-    res_SF_gr[[j]] <- res_SF_gr[[j]] + res_all[[i]][["SF_gr"]][[j]] / 100
+for (i in 1:10) {
+  for (j in 1:3) {
+    res_SF_gr[[j]] <- res_SF_gr[[j]] + res_all[[i]][["SF_gr"]][[j]] / 10
   }
 }
-SF_gr_seq <- data.frame(res_lambda, res_SF_gr[[1]], res_SF_gr[[3]], res_SF_gr[[4]])
+SF_gr_seq <- data.frame(res_lambda, res_SF_gr[[1]], res_SF_gr[[2]], res_SF_gr[[3]])
 colnames(SF_gr_seq) <- c("k", "A", "B", "C")
 SF_gr_seq <- melt(data = SF_gr_seq, id.vars = "k")
 
