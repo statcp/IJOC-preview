@@ -29,9 +29,7 @@ Below is the BibTex for citing this version of the code.
 ```
 ## Description
 
-This directory contains the code for the *group simplex-based multinomial logistic regression (GSMLR)* algorithm.
-
-This project contains three folders: `data`, `src`, and `scripts`.
+This project contains three folders for the *group simplex-based multinomial logistic regression (GSMLR)* algorithm: `data`, `src`, and `scripts`.
 - `data`: include five real datasets (.Rdata file) used in the paper.
 - `src`: include the source codes (.R file).
 - `scripts`: include codes (.R file) to replicate the experiments for Figure 3 in the paper. All outputs necessary for the study can be reproduced with similar codes.
