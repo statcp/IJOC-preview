@@ -39,9 +39,8 @@ To get the Figures and Tables in the paper, please run the R codes in the `scrip
 
 ## Ongoing Development
 
-This code is being developed on an ongoing basis at the author's [GitHub site](https://github.com/statcp).
+This code is being developed on an ongoing basis at the author's [GitHub site](https://github.com/statcp/IJOC-preview).
 
 ## Support
 
-For support in using this software, submit an
-[issue](https://github.com/statcp).
+For support in using this software, submit an [issue](https://github.com/statcp).
