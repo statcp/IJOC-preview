@@ -18,12 +18,12 @@ To cite the contents of this repository, please cite both the paper and this rep
 Below is the BibTex for citing this version of the code.
 ```latex
 @misc{fu2025fast,
-  author =    {Sheng Fu, Shixiang Li, Kai Yu, Piao Chen, and Zhisheng Ye},
-  publisher =     {INFORMS Journal on Computing},
-  title =         {Fast multinomial logistic regression with group sparsity},
-  year =          {2025},
-  doi =           {10.1287/ijoc.2024.0796.cd},
-  note =           {Available for download at https://github.com/INFORMSJoC/2024.0796},
+  author = {Sheng Fu, Shixiang Li, Kai Yu, Piao Chen, and Zhisheng Ye},
+  publisher = {INFORMS Journal on Computing},
+  title = {Fast multinomial logistic regression with group sparsity},
+  year = {2025},
+  doi = {10.1287/ijoc.2024.0796.cd},
+  note = {Available for download at https://github.com/INFORMSJoC/2024.0796},
 }  
 ```
 ## Description
