@@ -23,7 +23,6 @@ Below is the BibTex for citing this version of the code.
   title =         {Fast multinomial logistic regression with group sparsity},
   year =          {2025},
   doi =           {10.1287/ijoc.2024.0796},
-  url =           {https://github.com/INFORMSJoC/2024.0796},
   note =           {Available for download at https://github.com/INFORMSJoC/2024.0796},
 }  
 ```
