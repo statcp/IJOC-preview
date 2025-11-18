@@ -474,14 +474,14 @@ app_func <- function(para){
 cl <- detectCores()
 clus <- makeCluster(cl - 2)
 res_all <- list()
-parm <- cbind(rep(1, 10))
+parm <- cbind(rep(1, 100))
 res_all <- parLapply(clus, parm, fun = app_func)
 save(res_all, file = "res_smlr_ISOLET_lambda.Rdata")
 # Plot --------------------------------------------------------------------
 load("res_smlr_ISOLET_lambda.Rdata")
 res_lambda <- 0
-for (i in 1:10) {
-  res_lambda <- res_lambda + res_all[[i]][["lambda"]] / 10
+for (i in 1:100) {
+  res_lambda <- res_lambda + res_all[[i]][["lambda"]] / 100
 }
 
 res_SF <- list()
@@ -490,9 +490,9 @@ for (i in 1:3) {
 }
 names(res_SF) <- names(res_all[[1]][["SF"]])
 
-for (i in 1:10) {
+for (i in 1:100) {
   for (j in 1:3) {
-    res_SF[[j]] <- res_SF[[j]] + res_all[[i]][["SF"]][[j]] / 10
+    res_SF[[j]] <- res_SF[[j]] + res_all[[i]][["SF"]][[j]] / 100
   }
 }
 SF_seq <- data.frame(res_lambda, res_SF[[1]], res_SF[[2]],
@@ -526,9 +526,9 @@ for (i in 1:3) {
 }
 names(res_SF_gr) <- names(res_all[[1]][["SF_gr"]])
 
-for (i in 1:10) {
+for (i in 1:100) {
   for (j in 1:3) {
-    res_SF_gr[[j]] <- res_SF_gr[[j]] + res_all[[i]][["SF_gr"]][[j]] / 10
+    res_SF_gr[[j]] <- res_SF_gr[[j]] + res_all[[i]][["SF_gr"]][[j]] / 100
   }
 }
 SF_gr_seq <- data.frame(res_lambda, res_SF_gr[[1]], res_SF_gr[[2]], res_SF_gr[[3]])
@@ -559,4 +559,5 @@ SF_gr_plot <- ggplot(data = SF_gr_seq,
 ggarrange(SF_plot, 
           SF_gr_plot, 
           nrow = 1, ncol = 2, common.legend = T)
+
 
