@@ -1,6 +1,6 @@
 ![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)
 
-# CacheTest
+# Fast multinomial logistic regression with group sparsity
 
 This project is distributed in association with the [INFORMS Journal on
 Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
